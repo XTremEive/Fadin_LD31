@@ -20,7 +20,7 @@ public abstract class Visual extends Entity {
     }
 
     public void setColor(Color color) {
-        this.sprite.setColor(new Color(color.r, color.g, color.b, this.sprite.getColor().a));
+        this.sprite.setColor(color);
     }
 
     public Sprite getSprite() {

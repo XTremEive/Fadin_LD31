@@ -168,7 +168,7 @@ public class MyGame extends ApplicationAdapter {
         int positionY = random.nextInt(getScreenSizeY() / configuration.get("gridSize") - 4) * configuration.get("gridSize") + configuration.get("gridSize") * 2;
 
         // Add
-        Gem gem = new Gem("gem", "item", blocks.get(new Random().nextInt(blocks.size())).getElement(), positionX, positionY, configuration.get("gridSize"), configuration.get("gridSize"));
+        Gem gem = new Gem("gem", "item", -1, positionX, positionY, configuration.get("gridSize"), configuration.get("gridSize"));
         gems.add(gem);
         add(gem);
 
