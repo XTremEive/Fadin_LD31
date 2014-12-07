@@ -40,7 +40,6 @@ public class InGameState extends GameState {
         }
 
         // Feedback
-        getGame().getPlayer().setAlpha(getGame().getTimer().getRemainingTime() / (float)getGame().getTimer().getMaxTime());
         getGame().getSoundManager().setBgmVolume(getGame().getTimer().getRemainingTime() / (float)getGame().getTimer().getMaxTime());
     }
 
