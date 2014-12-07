@@ -1,0 +1,7 @@
+initialScore 0
+initialLevel 1
+initialTime 25000
+maxTime 25000
+gridSize 40
+additionalTime 4000
+goalPerLevel 3
