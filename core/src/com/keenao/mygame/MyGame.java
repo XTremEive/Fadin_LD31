@@ -25,8 +25,10 @@ import java.util.Random;
 public class MyGame extends ApplicationAdapter {
     private static final int MAX_EFFECT_SIZE = 300;
     private static final int EFFECT_SPEED = 20;
+    private static final float SCORE_POSITION_X = 15;
+    private static final float SCORE_POSITION_Y = 15;
 
-	private SpriteBatch spriteBatch;
+    private SpriteBatch spriteBatch;
     private BitmapFont font;
     private InputManager inputManager;
     private TimeManager timeManager;
@@ -162,8 +164,8 @@ public class MyGame extends ApplicationAdapter {
     {
         // Compute goal position
         Random random = new Random();
-        int positionX = random.nextInt(getScreenSizeX() / configuration.get("gridSize") - 3) * configuration.get("gridSize") + configuration.get("gridSize");
-        int positionY = random.nextInt(getScreenSizeY() / configuration.get("gridSize") - 3) * configuration.get("gridSize") + configuration.get("gridSize");
+        int positionX = random.nextInt(getScreenSizeX() / configuration.get("gridSize") - 4) * configuration.get("gridSize") + configuration.get("gridSize") * 2;
+        int positionY = random.nextInt(getScreenSizeY() / configuration.get("gridSize") - 4) * configuration.get("gridSize") + configuration.get("gridSize") * 2;
 
         // Add
         Gem gem = new Gem("gem", "item", blocks.get(new Random().nextInt(blocks.size())).getElement(), positionX, positionY, configuration.get("gridSize"), configuration.get("gridSize"));
@@ -497,7 +499,7 @@ public class MyGame extends ApplicationAdapter {
             entity.draw(spriteBatch);
         }
         if (isTextVisible) {
-            font.draw(spriteBatch, "Time: " + (timer.getRemainingTime() / 1000) + " | Level: " + getLevel().getValue() + " | Score: " + ((int) getScore().getValue())  + " | Chain: x" + getChain().getValue(), 10, getScreenSizeY() - 14);
+            font.draw(spriteBatch, "Time: " + (timer.getRemainingTime() / 1000) + " | Level: " + getLevel().getValue() + " | Score: " + ((int) getScore().getValue())  + " | Chain: x" + getChain().getValue(), SCORE_POSITION_X, getScreenSizeY() - SCORE_POSITION_Y);
         }
         spriteBatch.end();
     }
