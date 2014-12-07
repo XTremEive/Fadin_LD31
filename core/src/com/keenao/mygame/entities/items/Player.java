@@ -35,6 +35,11 @@ public class Player extends Item {
             setVelocityX(0);
             setVelocityY(-MOVEMENT_SPEED - PLAYER_ADVANTAGE);
         }
+        if (inputManager.isDown("a"))
+        {
+            setVelocityX(0);
+            setVelocityY(0);
+        }
 
         // Default
         super.update(inputManager, timeManager, soundManager);

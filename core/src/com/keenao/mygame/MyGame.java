@@ -122,6 +122,12 @@ public class MyGame extends ApplicationAdapter {
         soundManager.playFx("player_created");
     }
 
+    public void destroyPlayer()
+    {
+        remove(player);
+        player = null;
+    }
+
     public void createEffect(int positionX, int positionY, Color color) {
         Effect effect = new Effect("effect", color, positionX, positionY, 0, 0);
         effects.add(effect);
@@ -130,14 +136,8 @@ public class MyGame extends ApplicationAdapter {
 
     public void destroyEffect(Effect effect)
     {
-        effects.remove(effect);
         remove(effect);
-    }
-
-    public void destroyPlayer()
-    {
-        remove(player);
-        player = null;
+        effects.remove(effect);
     }
 
     public void createGoal()
@@ -155,6 +155,7 @@ public class MyGame extends ApplicationAdapter {
     {
         // Remove
         remove(goal);
+        goal = null;
 
         // Feedback
         soundManager.playFx("goal_destroyed");
@@ -193,12 +194,26 @@ public class MyGame extends ApplicationAdapter {
     private void refreshGems(int count) {
         // Clear
         remove("gem");
+        gems.clear();
 
         // Refill
         for(int i = 0; i < count; ++i)
         {
             createGem();
         }
+    }
+
+    public MyGame destroyGem(Gem gem)
+    {
+        // Remove
+        gems.remove(gem);
+        remove(gem);
+
+        // Feedback
+        soundManager.playFx("gem_destroyed");
+
+        // Return
+        return this;
     }
 
     private void refreshBlocks(int count)
@@ -267,19 +282,6 @@ public class MyGame extends ApplicationAdapter {
             ++i4;
         }
     }
-
-    public MyGame destroyGem(Gem gem)
-    {
-        // Remove
-        remove(gem);
-
-        // Feedback
-        soundManager.playFx("gem_destroyed");
-
-        // Return
-        return this;
-    }
-
 
     public void levelUp()
     {
@@ -350,7 +352,6 @@ public class MyGame extends ApplicationAdapter {
         // Return
         return this;
     }
-
 
     @Override
     public void create () {

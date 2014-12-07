@@ -14,7 +14,10 @@ public class TitleState extends GameState {
 
     @Override
     public void update() {
-        if (getGame().getInputManager().isDown("a"))
+        if (getGame().getInputManager().isDown("4")
+                || getGame().getInputManager().isDown("8")
+                || getGame().getInputManager().isDown("6")
+                || getGame().getInputManager().isDown("2"))
         {
             getGame().switchToState("title.end");
         }

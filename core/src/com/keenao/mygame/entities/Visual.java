@@ -11,7 +11,7 @@ public abstract class Visual extends Entity {
     protected Visual(String asset, String type, int positionX, int positionY, int sizeX, int sizeY) {
         super(type, positionX, positionY, sizeX, sizeY);
 
-        this.sprite = new Sprite(new Texture(asset + ".png"));
+        this.sprite = new Sprite(AssetManger.getTexture(asset));
         this.setColor(new Color(Color.WHITE));
     }
 
