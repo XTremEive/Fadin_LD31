@@ -231,13 +231,14 @@ public class MyGame extends ApplicationAdapter {
         ArrayList<Integer> blocksToPlace = new ArrayList<>();
         for(int i = 0; i < perimeter; ++i)
         {
-            blocksToPlace.add(elementOffset + 360 / count * (i % count));
+            blocksToPlace.add((elementOffset + (360 / count) * i) % 360);
         }
 
         int i1 = 0;
         while(i1 < sizeX)
         {
             int element = blocksToPlace.get(i1);
+
             int positionX = i1 * configuration.get("gridSize");
             int positionY = 0;
             Block block = new Block("block", null, element, positionX, positionY, configuration.get("gridSize"), configuration.get("gridSize"));
